@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+public class Student extends Person {
+    private ArrayList<Integer> certificates = new ArrayList<>();
+
+    public Student(String name, char gender, int age) {
+        super(name, gender, age);
+    }
+
+    public void graduate(Subject subject) {
+        certificates.add(subject.getID());
+    }
+
+    public ArrayList<Integer> getCertificates() { return certificates; }
+
+    public boolean hasCertificate(Subject subject) {
+        for (int id : certificates) {
+            if (id == subject.getID()) return true;
+        }
+        return false;
+    }
+}
